@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Finance Pro AI - Groq Edition</title>
+<title>Personal Finance Helper</title>
 <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -87,17 +87,16 @@ body{font-family:'Outfit',sans-serif;background:#0e1117;color:#e8e6df;min-height
 .edl:hover{color:#ff6b6b}
 .pl{display:flex;align-items:center;gap:6px;font-size:11px;color:#c4c1b8;margin-bottom:5px}
 .pd{width:8px;height:8px;border-radius:50%;flex-shrink:0}
-.model-badge{font-size:9px;background:rgba(78,207,160,0.15);padding:2px 6px;border-radius:4px;margin-left:6px;color:#4ecfa0}
 </style>
 </head>
 <body>
 
 <div id="sidebar">
-  <div id="sb-head"><div class="logo">Finance<span>Pro</span> AI <span class="model-badge">Groq</span></div></div>
+  <div id="sb-head"><div class="logo">Finance<span>Pro</span></div></div>
   <div id="key-wrap">
     <label>Groq API Key</label>
     <input type="password" id="apikey" placeholder="gsk_..." oninput="saveKey()"/>
-    <div id="key-st">Get your free Groq API key from console.groq.com</div>
+    <div id="key-st">Get free API key from console.groq.com</div>
   </div>
   <div class="nav-sec">Tools</div>
   <button class="nb active" onclick="showP('chat')" id="nav-chat"><span class="ico">💬</span>AI Chat</button>
@@ -115,8 +114,8 @@ body{font-family:'Outfit',sans-serif;background:#0e1117;color:#e8e6df;min-height
   <!-- CHAT -->
   <div class="panel active" id="panel-chat">
     <div id="ch-head">
-      <h2>Finance AI Assistant <span class="model-badge">Powered by Groq</span></h2>
-      <p>Personal finance help tailored for India — savings, investments, loans, taxes &amp; more (Fast & Free)</p>
+      <h2>Personal Finance Helper</h2>
+      <p>Your AI assistant for savings, investments, loans, budgeting &amp; taxes - tailored for India</p>
     </div>
     <div id="chips">
       <button class="chip" onclick="ask('What is compound interest and how does it work?')">Compound interest</button>
@@ -124,17 +123,15 @@ body{font-family:'Outfit',sans-serif;background:#0e1117;color:#e8e6df;min-height
       <button class="chip" onclick="ask('Best investment options in India for beginners?')">Investments</button>
       <button class="chip" onclick="ask('Explain the 50-30-20 budgeting rule')">50-30-20 rule</button>
       <button class="chip" onclick="ask('Tax saving investments under Section 80C in India')">Tax saving 80C</button>
-      <button class="chip" onclick="ask('What is the FIRE movement and how to achieve it in India?')">FIRE movement</button>
       <button class="chip" onclick="ask('How to build an emergency fund in India?')">Emergency fund</button>
-      <button class="chip" onclick="ask('Difference between mutual funds and direct stocks in India')">MF vs Stocks</button>
     </div>
     <div id="msgs">
       <div class="mw bot">
-        <div class="ml">Finance AI</div>
-        <div class="msg">👋 Hi! I'm your AI-powered finance assistant using <strong>Groq's fast LLM</strong> — covering <strong>savings, investments, loans, budgeting, tax planning</strong> and more — tailored for India.<br><br>📌 Get your free Groq API key from <strong>console.groq.com</strong> (they give generous free credits!). Enter it in the sidebar to activate all AI features.<br><br>⚡ Groq is extremely fast — responses in 1-2 seconds!</div>
+        <div class="ml">Assistant</div>
+        <div class="msg">👋 Hi! I'm your personal finance assistant. I can help with savings, investments, loans, budgeting, and tax planning for India.<br><br>📌 Get your free Groq API key from <strong>console.groq.com</strong> and enter it in the sidebar to get started!</div>
       </div>
     </div>
-    <div class="disc">📌 For educational purposes only — not professional financial advice. Consult a certified advisor for major decisions.</div>
+    <div class="disc">📌 For educational purposes only — not professional financial advice.</div>
     <div id="ir">
       <input id="inp" placeholder="Ask any finance question..." onkeydown="if(event.key==='Enter'&&!event.shiftKey)send()"/>
       <button id="send" onclick="send()">Send ↗</button>
@@ -145,7 +142,7 @@ body{font-family:'Outfit',sans-serif;background:#0e1117;color:#e8e6df;min-height
   <div class="panel" id="panel-expense">
     <div class="tp">
       <h2>Expense Tracker</h2>
-      <div class="sub">Track your spending and visualize where your money goes</div>
+      <div class="sub">Track your spending and see where your money goes</div>
       <div class="card">
         <h3>Add Expense</h3>
         <div class="g2">
@@ -191,7 +188,7 @@ body{font-family:'Outfit',sans-serif;background:#0e1117;color:#e8e6df;min-height
   <div class="panel" id="panel-emi">
     <div class="tp">
       <h2>EMI Calculator</h2>
-      <div class="sub">Calculate monthly installment and full interest breakdown</div>
+      <div class="sub">Calculate your monthly loan payments</div>
       <div class="card">
         <h3>Loan Details</h3>
         <div class="g2">
@@ -230,7 +227,7 @@ body{font-family:'Outfit',sans-serif;background:#0e1117;color:#e8e6df;min-height
   <div class="panel" id="panel-sip">
     <div class="tp">
       <h2>SIP Calculator</h2>
-      <div class="sub">See how small monthly investments grow into serious wealth</div>
+      <div class="sub">See how monthly investments grow over time</div>
       <div class="card">
         <h3>SIP Details</h3>
         <div class="g2">
@@ -265,7 +262,7 @@ body{font-family:'Outfit',sans-serif;background:#0e1117;color:#e8e6df;min-height
   <div class="panel" id="panel-goal">
     <div class="tp">
       <h2>Goal Planner</h2>
-      <div class="sub">Set a financial goal and get a personalized AI savings roadmap</div>
+      <div class="sub">Set a financial goal and get a personalized savings plan</div>
       <div class="card">
         <h3>Your Goal</h3>
         <div class="g2">
@@ -289,7 +286,7 @@ body{font-family:'Outfit',sans-serif;background:#0e1117;color:#e8e6df;min-height
   <div class="panel" id="panel-glossary">
     <div class="tp">
       <h2>Finance Glossary</h2>
-      <div class="sub">Understand any finance term instantly — explained with Indian context</div>
+      <div class="sub">Understand financial terms with simple explanations</div>
       <div class="card">
         <h3>Quick Terms</h3>
         <div style="display:flex;flex-wrap:wrap;gap:7px;margin-bottom:14px">
@@ -298,13 +295,9 @@ body{font-family:'Outfit',sans-serif;background:#0e1117;color:#e8e6df;min-height
           <button class="chip" onclick="lookup('Mutual Fund NAV')">NAV</button>
           <button class="chip" onclick="lookup('XIRR')">XIRR</button>
           <button class="chip" onclick="lookup('Inflation')">Inflation</button>
-          <button class="chip" onclick="lookup('Rupee Cost Averaging')">Rupee Cost Avg</button>
-          <button class="chip" onclick="lookup('Alpha and Beta in investing')">Alpha &amp; Beta</button>
-          <button class="chip" onclick="lookup('Debt to Income Ratio')">DTI Ratio</button>
-          <button class="chip" onclick="lookup('ELSS tax saving fund India')">ELSS</button>
-          <button class="chip" onclick="lookup('PPF vs EPF India')">PPF vs EPF</button>
-          <button class="chip" onclick="lookup('NPS National Pension System India')">NPS</button>
-          <button class="chip" onclick="lookup('Diversification in investing')">Diversification</button>
+          <button class="chip" onclick="lookup('ELSS')">ELSS</button>
+          <button class="chip" onclick="lookup('PPF')">PPF</button>
+          <button class="chip" onclick="lookup('NPS')">NPS</button>
         </div>
         <div style="display:flex;gap:8px">
           <input type="text" id="g-inp" placeholder="Type any finance term..." style="flex:1;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:7px;color:#e8e6df;font-family:inherit;font-size:13px;padding:8px 11px;outline:none" onkeydown="if(event.key==='Enter')lookup(this.value)"/>
@@ -330,21 +323,20 @@ var CATS = {
   'Investment': '#6ee7b7', 'Other': '#94a3b8'
 };
 
-// Helper functions
 function getKey() { return document.getElementById('apikey').value.trim(); }
 
 function saveKey() {
   var k = getKey();
   var s = document.getElementById('key-st');
   if (k.startsWith('gsk_')) {
-    s.textContent = '✓ Groq API Key saved!';
+    s.textContent = '✓ API Key saved!';
     s.className = 'key-ok';
     localStorage.setItem('fp_api_key', k);
   } else if (k) {
-    s.textContent = 'Key should start with "gsk_" - get from console.groq.com';
+    s.textContent = 'Key should start with "gsk_"';
     s.className = '';
   } else {
-    s.textContent = 'Get your free Groq API key from console.groq.com';
+    s.textContent = 'Get free API key from console.groq.com';
     s.className = '';
   }
 }
@@ -361,7 +353,7 @@ function addMsg(txt, type) {
   w.className = 'mw ' + type;
   var l = document.createElement('div');
   l.className = 'ml';
-  l.textContent = type === 'bot' ? 'Finance AI' : 'You';
+  l.textContent = type === 'bot' ? 'Assistant' : 'You';
   var m = document.createElement('div');
   m.className = 'msg';
   m.innerHTML = txt.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>');
@@ -378,7 +370,7 @@ function addTyping() {
   w.id = 'ty';
   var l = document.createElement('div');
   l.className = 'ml';
-  l.textContent = 'Finance AI';
+  l.textContent = 'Assistant';
   var t = document.createElement('div');
   t.className = 'typing';
   t.innerHTML = '<span></span><span></span><span></span>';
@@ -392,7 +384,7 @@ function remTyping() {
   if (t) t.remove();
 }
 
-// GROQ API CALL - FIXED VERSION
+// GROQ API CALL - USING WORKING MODEL
 async function callGroq(systemPrompt, userMessage, maxTokens) {
   const apiKey = getKey();
   if (!apiKey || !apiKey.startsWith('gsk_')) {
@@ -406,7 +398,7 @@ async function callGroq(systemPrompt, userMessage, maxTokens) {
       'Authorization': 'Bearer ' + apiKey
     },
     body: JSON.stringify({
-      model: 'mixtral-8x7b-32768',
+      model: 'llama-3.1-8b-instant',
       messages: [
         { role: 'system', content: systemPrompt },
         { role: 'user', content: userMessage }
@@ -420,13 +412,12 @@ async function callGroq(systemPrompt, userMessage, maxTokens) {
   
   if (!response.ok) {
     console.error('Groq API Error:', data);
-    throw new Error(data.error?.message || 'API error. Check your key and try again.');
+    throw new Error(data.error?.message || 'API error. Check your key.');
   }
   
   return data.choices[0].message.content;
 }
 
-// Send message
 async function send() {
   var inp = document.getElementById('inp');
   var q = inp.value.trim();
@@ -454,7 +445,6 @@ async function send() {
     remTyping();
     addMsg(reply, 'bot');
     
-    // Save to history
     convHist.push({ role: 'user', content: q });
     convHist.push({ role: 'assistant', content: reply });
     
@@ -543,7 +533,7 @@ function addExp() {
   var amt = parseFloat(document.getElementById('e-amt').value);
   var cat = document.getElementById('e-cat').value;
   var date = document.getElementById('e-date').value || new Date().toISOString().split('T')[0];
-  if (!desc || !amt) { alert('Fill in description and amount'); return; }
+  if (!desc || !amt || isNaN(amt)) { alert('Fill in description and amount'); return; }
   exps.push({ id: Date.now(), desc: desc, amt: amt, cat: cat, date: date });
   localStorage.setItem('fp_e', JSON.stringify(exps));
   document.getElementById('e-desc').value = '';
@@ -851,10 +841,10 @@ async function planGoal() {
     '<div class="sb"><div class="sl">Gap</div><div class="sv">' + fmt(needed) + '</div></div></div>' +
     '<div class="ir2"><span class="l">Monthly Surplus</span><span class="v">' + fmt(surplus) + '</span></div>' +
     '<div class="ir2"><span class="l">Savings Rate Needed</span><span class="v">' + (inc ? Math.round(monthly / inc * 100) : 0) + '%</span></div>' +
-    '<div class="ir2"><span class="l">Feasibility</span><span class="v" style="color:' + (monthly <= surplus ? '#4ecfa0' : '#f59e0b') + '">' + (monthly <= surplus ? '✓ Achievable' : '⚠ Stretch goal — consider extending timeline') + '</span></div>' +
+    '<div class="ir2"><span class="l">Feasibility</span><span class="v" style="color:' + (monthly <= surplus ? '#4ecfa0' : '#f59e0b') + '">' + (monthly <= surplus ? '✓ Achievable' : '⚠ Stretch goal') + '</span></div>' +
     '<div class="ai-ins" id="g-ai" style="margin-top:12px">Getting AI roadmap…</div>';
   try {
-    var rep = await callGroq('You are a financial planner.', 'Help me achieve a financial goal in India. Goal: ' + name + '. Target: ₹' + tgt + '. Current savings: ₹' + cur + '. Timeframe: ' + months + ' months. Monthly income: ₹' + inc + '. Monthly expenses: ₹' + exp + '. Give a practical step-by-step savings and investment plan (FD/SIP/RD/PPF/NPS etc.) with amounts.', 600);
+    var rep = await callGroq('You are a financial planner.', 'Help me achieve a financial goal in India. Goal: ' + name + '. Target: ₹' + tgt + '. Current savings: ₹' + cur + '. Timeframe: ' + months + ' months. Monthly income: ₹' + inc + '. Monthly expenses: ₹' + exp + '. Give a practical step-by-step savings and investment plan with amounts.', 600);
     document.getElementById('g-ai').textContent = rep;
   } catch (e) { document.getElementById('g-ai').textContent = 'Error: ' + e.message; }
 }
@@ -881,7 +871,6 @@ updSum();
 calcEMI();
 calcSIP();
 
-// Load saved API key
 var savedKey = localStorage.getItem('fp_api_key');
 if (savedKey && savedKey.startsWith('gsk_')) {
   document.getElementById('apikey').value = savedKey;
